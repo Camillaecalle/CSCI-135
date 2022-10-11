@@ -1,0 +1,49 @@
+
+ /*
+ Programmer: Camilla Calle 
+ Instructor: Mandy Yu 
+ CSCI 135
+ Project 1 Task B 
+ */
+  
+//maze_runner.cpp 
+
+/*Write a program maze_runner.cpp that reads from the cin a sequence of one or more letters and treat it as a
+list of directions that take you through the maze array to see whether or not you exit the maze at the correct 
+location or not.Space characters can be anywhere in the input. After the input ends (end-of-file is reached), 
+the program should compute and print the result of the input summation.*/
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    char s;
+    int r = 0;
+    int c = 1;
+    int maze[6][6] = {
+        1,0,1,1,1,1,
+        1,0,0,0,1,1,
+        1,0,1,0,0,1,
+        1,0,1,0,1,1,
+        1,0,0,0,0,0,
+        1,1,1,1,1,1
+         };
+    while (cin >> s){
+        if ( s == 'R' && maze[r][c+1]==0){
+            c++;
+        } else if (s == 'L' && maze[r][c-1]==0){
+            c--;
+        } else if ( s == 'U' && maze[r-1][c]==0){
+            r--; //if you want to up //row -1 to go l
+        } else if ( s == 'D' && maze[r+1][c]==0){
+            r++;
+        }
+    }
+
+    if (r == 4 && c == 5)
+        cout << "You got out of the maze" << endl;
+    else 
+        cout << "You got stuck in the maze" << endl;
+
+    return 0;
+}
