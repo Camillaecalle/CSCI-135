@@ -1,0 +1,50 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main () {
+  string filename;
+  cout << "Enter input filename: ";
+  getline (cin, filename); //input file
+  ifstream file;
+  file.open(filename); 
+  string line;
+  getline (file, line, ';');
+  int width;
+  ofstream outfile; 
+  width = stoi(line);
+  getline (file, line, ';');
+  outfile.open(line);
+  getline (file, line);
+  string word;
+  int counter; //count the char and reset for each line 
+  while(getline (file, line)){
+    if(line.size() <= 1){
+      outfile << endl << endl;
+    }
+    else if (line.size() < width){
+      outfile << line << endl;
+    }
+    else{
+      for(int i = 0; i < line.size(); i++){
+         //cc these lines down 
+        
+
+        //if line[i] is a space, add the word to the file, and add another space
+        //if counter + this word length > width: add new line to file, then add word with
+        //space after it to file, counter resets to word length + 1
+        //counter add length of word + 1, word = "", 
+
+        //if not, add line[i] to current word
+      
+       }
+    }
+  }; 
+
+
+
+  file.close();
+  // cout << "hello";
+  // output_file.close();
+
+}
